@@ -1,0 +1,286 @@
+// this is how the text will look like
+@font-face {
+    font-family: 'FonCus';
+    src: url('fonts/PTSans-Regular.ttf') format('truetype');
+}
+
+// these are variables like C# but in less
+@hoofdkleur: #da121a;
+@steunkleur: #fff;
+@font: 'FonCus', sans-serif;
+
+// this is also how the text will look like
+.font(){
+    font-size: calc(12px + 0.27vw);
+    font-family: 'FonCus', sans-serif;
+}
+.homestand() {
+    padding: 1%;
+    width: 45%;
+    float: left;
+    margin-left: 1%; 
+    margin-top: 1%;
+    border: 2px solid @steunkleur;
+    .font()
+}
+
+// this is the list for kandidaten that I painfully wrote
+.mensenlijst(){
+    width: 25%;
+    margin-left: 5%;
+    float: left;
+    padding: 1.5% 0%;
+    border: 2px solid @steunkleur;
+    font-size: calc(10px + 0.27vw);
+    font-family: 'FonCus', sans-serif;
+    background-color: rgb(235, 246, 255);
+    margin-top: 2%;
+    img{
+        width: 20vw;
+        height: auto;
+        }
+    li{
+       list-style-type: none;
+    }
+}
+
+// this is for the navigation bar at the top
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: hsl(219, 100%, 87%);
+}
+
+.TopNav {
+    top: 0;
+    display: block;
+    margin: 0;
+    background-color: rgb(192, 94, 94);
+    padding: 10px 0;
+    z-index: 1;
+
+    li {
+        display: inline-block;
+        padding: 1px 2%;
+        list-style-type: none;
+        text-align: center;
+        &:hover {
+            background-color: rgb(192, 94, 94);
+        }
+    }
+
+    .Logo {
+        margin-right: 8%;
+        img{
+            width: calc(50px + 2.5vw);
+            height: auto;
+        }
+    }
+
+    .Logo2 {
+        top: 10%;
+        margin-left: 8%;
+        font-size: calc(15px + 0.90vw);
+        display: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+    }
+
+    .nav-item {
+        font-size: calc(14px + 0.70vw);
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        margin-left: 3%;
+        float: left;
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            -webkit-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+            background-color: black;
+        }
+    }
+
+    // hamburger menu for smaller screen, it extends when you press it, I watched a video for this
+
+    @media (max-width: 500px) {
+        .hamburger {
+            display: block;
+        }
+
+        .Logo2 {
+            display: inline;
+            img{
+                margin-left: 28%;
+                width: 50px;
+                height: auto;
+            }
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .nav-menu {
+            position: absolute;
+            top: 42px;
+            left: -100%;
+            gap: 0;
+            flex-direction: column;
+            background-color: rgb(192, 94, 94);
+            width: 30vw;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .Logo {
+            display: none;
+        }
+
+        .nav-item {
+            margin: 16px 0;
+        }
+
+        .nav-link {
+            color: rgb(0, 0, 0);
+            &:hover {
+                background-color: @hoofdkleur;
+            }
+        }
+    }
+}
+
+// first page
+.home{
+    width: 95%;
+    .samensterk{
+        img{
+            height: 300px;
+            width: 100%;
+        }
+        background-color: @hoofdkleur;
+        .homestand()
+    }
+    article{
+        img{
+            display: none;
+        }
+        background-color: rgb(235, 246, 255);
+        .homestand()
+    }
+    .bereikbaarheid {
+        background-color: @hoofdkleur;
+        .homestand()
+    }
+    .glasvezel{
+            padding: 1%;
+            width: 100%;
+            float: left;
+            margin: 1%;
+            border: 2px solid @steunkleur;
+            background-color: @hoofdkleur;
+            .font()
+        }
+    @media (max-width: 1200px) 
+    {
+        .samensterk,
+        .bereikbaarheid,
+        article{
+            width: 100%;
+            margin-left: 1%;
+            img{
+                display: inline;
+                width: 92vw;
+            }
+        }
+        .samensterk{
+            img{
+                display: none;
+            }
+        }
+    }
+}
+
+// Second page
+.programma{
+    width: 95%;
+    margin-left: 3%;
+    article{
+        padding: 1%;
+        width: 45%;
+        float: left;
+        margin-left: 1%; 
+        margin-top: 8%;
+        border: 2px solid @steunkleur;
+        background-color: @hoofdkleur;
+        .font()
+    }
+    img{
+        width: 47vw;
+        height: 22.5vw;
+        float: left;
+        margin-left: 1%; 
+        margin-top: 8%;
+        border: 2px solid @steunkleur;
+    }
+    .hidden{
+        display: none;
+    }
+    @media (max-width: 1200px) 
+    {
+        article{
+            width: 95%;
+            margin: 1% 1%;
+        }
+        img{
+            display: none;
+        }
+        .hidden{
+            display: inline;
+            width: 97%;
+            height: 40vw;
+            margin: 10% 1% 1% 1%;
+            border: 2px solid @steunkleur;
+        }
+    }
+}
+
+// third page (the hardest)
+.kandidaten{
+    .lijst{
+        .mensenlijst()
+    }
+    @media (max-width: 900px)
+    {   .lijst 
+        {
+            width: 40vw;
+            img{
+            width: 25vw;
+            height: auto;
+            }
+        }
+        
+    }
+}
